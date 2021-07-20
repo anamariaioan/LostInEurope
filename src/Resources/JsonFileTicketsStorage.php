@@ -4,7 +4,7 @@ namespace Resources;
 
 class JsonFileTicketsStorage
 {
-    public function fetchAllShipsData()
+    public function fetchAllTicketsData()
     {
         $jsonContents = file_get_contents('tickets.json');
 

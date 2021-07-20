@@ -4,14 +4,15 @@ namespace Service;
 
 use Model\TicketModel;
 use JetBrains\PhpStorm\Pure;
+use Resources\JsonFileTicketsStorage;
 
-class SortTicketsService
+class SortTicketsService extends JsonFileTicketsStorage
 {
     private array $tickets;
 
-    public function __construct($tickets)
+    public function __construct()
     {
-        $this->tickets = $tickets;
+        $this->tickets = $this->fetchAllTicketsData();
     }
 
     #[Pure] private function getDepartureLocations(): array

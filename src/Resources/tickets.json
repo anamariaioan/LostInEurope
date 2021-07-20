@@ -1,2 +1,20 @@
 [
   {
+    "extra_details": "",
+    "departure": "St. Anton am Arlberg Bahnhof",
+    "destination": "Innsbruck Hbf",
+    "transportation_type": "train",
+    "transportation_code": "RJX 765",
+    "boarding_details": "Platform 3",
+    "seat_code": "17C"
+  },
+  {
+    "extra_details": "",
+    "departure": "Innsbruck Hbf",
+    "destination": "Innsbruck Airport",
+    "transportation_type": "tram",
+    "transportation_code": "S5",
+    "boarding_details": "",
+    "seat_code": ""
+  }
+]
