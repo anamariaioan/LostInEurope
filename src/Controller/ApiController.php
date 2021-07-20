@@ -10,6 +10,7 @@ class ApiController extends SortTicketsService
 
     public function __construct($requestMethod)
     {
+        parent::__construct();
         $this->requestMethod = $requestMethod;
     }
 
