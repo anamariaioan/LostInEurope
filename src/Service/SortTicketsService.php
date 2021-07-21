@@ -4,45 +4,26 @@ namespace Service;
 
 use Model\TicketModel;
 use JetBrains\PhpStorm\Pure;
-use Resources\JsonFileTicketsStorage;
 
-class SortTicketsService extends JsonFileTicketsStorage
+class SortTicketsService
 {
+    use LocationIteratorTrait;
+
     private array $tickets;
+
+    private TicketModel $ticketModel;
 
     public function __construct()
     {
-        $this->tickets = $this->fetchAllTicketsData();
-    }
-
-    #[Pure] private function getDepartureLocations(): array
-    {
-        $departureLocations = [];
-        /** @var TicketModel $ticket */
-        foreach ($this->tickets as $ticket) {
-            $departureLocations[] = $ticket->getDeparture();
-        }
-
-        return $departureLocations;
-    }
-
-    #[Pure] private function getArrivalLocations(): array
-    {
-        $arrivalLocations = [];
-        /** @var TicketModel $ticket */
-        foreach ($this->tickets as $ticket) {
-            $arrivalLocations[] = $ticket->getDestination();
-        }
-
-        return $arrivalLocations;
+        $this->ticketModel = new TicketModel();
     }
 
     #[Pure] private function getStartingPoint(): array
     {
-        return array_diff($this->getDepartureLocations(), $this->getArrivalLocations());
+        return array_diff($this->getDepartureLocations($this->tickets), $this->getArrivalLocations($this->tickets));
     }
 
-    private function decideNextTicket($departure)
+    #[Pure] private function decideNextTicket($departure)
     {
         $nextTicket = null;
 
@@ -56,9 +37,11 @@ class SortTicketsService extends JsonFileTicketsStorage
         return $nextTicket;
     }
 
-    #[Pure] protected function sortTickets(): array
+    #[Pure] public function getSortedTickets(array $tickets): array
     {
-        $ticketsCount = count($this->tickets);
+        $this->tickets = $tickets;
+        $ticketsCount = count($tickets);
+
         $startingPoint = $this->getStartingPoint();
         $sortedTickets[] = $this->decideNextTicket(current($startingPoint));
 

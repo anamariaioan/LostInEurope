@@ -3,6 +3,14 @@ namespace Model;
 
 class TicketModel
 {
+    const TRANSPORTATION_TYPE_FIELD = 'transportation_type';
+    const DEPARTURE_FIELD = 'departure';
+    const DESTINATION_FIELD = 'destination';
+    const TRANSPORTATION_CODE_FIELD = 'transportation_code';
+    const BOARDING_DETAILS_FIELD = 'boarding_details';
+    const SEAT_CODE_FIELD = 'seat_code';
+    const EXTRA_DETAILS_FIELD = 'extra_details';
+
     private string $transportationCode;
 
     private string $transportationType;
@@ -19,7 +27,7 @@ class TicketModel
 
     public function getTransportationCode(): string
     {
-        return $this->transportationCode;
+        return $this->transportationCode ?: "No transportation code provided";
     }
 
     public function setTransportationCode(string $transportationCode)
@@ -49,7 +57,7 @@ class TicketModel
 
     public function getBoardingDetails(): string
     {
-        return $this->boardingDetails;
+        return $this->boardingDetails ?: "No boarding details provided";
     }
 
     public function setBoardingDetails(string $boardingDetails)
@@ -69,7 +77,7 @@ class TicketModel
 
     public function getSeatCode(): string
     {
-        return $this->seatCode ?: 'No seat assignment';
+        return $this->seatCode ?: 'No seat assignment provided';
     }
 
     public function setSeatCode(string $seatCode)
@@ -79,11 +87,30 @@ class TicketModel
 
     public function getExtraDetails(): string
     {
-        return $this->extraDetails ?: 'No extra details.';
+        return $this->extraDetails ?: 'No extra details provided';
     }
 
     public function setExtraDetails(string $extraDetails)
     {
         $this->extraDetails = $extraDetails;
+    }
+
+    public function getArrayOfTicketsObject(array $tickets): array
+    {
+        $arrayOfTicketsObject = [];
+
+        foreach ($tickets as $ticket) {
+            $ticketObject = new TicketModel();
+            $ticketObject->setTransportationType($ticket[self::TRANSPORTATION_TYPE_FIELD]);
+            $ticketObject->setDeparture($ticket[self::DEPARTURE_FIELD]);
+            $ticketObject->setDestination($ticket[self::DESTINATION_FIELD]);
+            $ticketObject->setTransportationCode($ticket[self::TRANSPORTATION_CODE_FIELD] ?? '');
+            $ticketObject->setBoardingDetails($ticket[self::BOARDING_DETAILS_FIELD] ?? '');
+            $ticketObject->setSeatCode($ticket[self::SEAT_CODE_FIELD . ''] ?? '');
+            $ticketObject->setExtraDetails($ticket[self::EXTRA_DETAILS_FIELD] ?? '');
+
+            $arrayOfTicketsObject[] = $ticketObject;
+        }
+        return $arrayOfTicketsObject;
     }
 }

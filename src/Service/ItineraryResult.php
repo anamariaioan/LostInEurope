@@ -10,12 +10,12 @@ class ItineraryResult extends SortTicketsService
     const START = 'Start.';
     const FINISH = 'Last destination reached.';
 
-    #[Pure] public function compileSortedTickets(): array
+    #[Pure] public function compileSortedTickets($tickets): array
     {
         $itinerary[] = self::START;
 
         /** @var TicketModel $ticket */
-        foreach ($this->sortTickets() as $ticket) {
+        foreach ($this->getSortedTickets($tickets) as $ticket) {
             $itinerary[] =
                 'From "' . $ticket->getDeparture() .
                 '" board ' . $ticket->getTransportationType() .
