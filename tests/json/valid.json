@@ -1,0 +1,74 @@
+[
+  {
+    "transportation_type": "train",
+    "departure": "St. Anton am Arlberg Bahnhof",
+    "destination": "Innsbruck Hbf",
+    "transportation_code": "RJX 765",
+    "boarding_details": "Platform 3",
+    "seat_code": "17C",
+    "extra_details": ""
+  },
+  {
+    "transportation_type": "tram",
+    "departure": "Innsbruck Hbf",
+    "destination": "Innsbruck Airport",
+    "transportation_code": "S5",
+    "boarding_details": "",
+    "seat_code": "",
+    "extra_details": ""
+  },
+  {
+    "transportation_type": "flight",
+    "departure": "Innsbruck Airport",
+    "destination": "Venice Airport",
+    "transportation_code": "AA904",
+    "boarding_details": "gate 10",
+    "seat_code": "18B",
+    "extra_details": "Self-check-in luggage at counter."
+  },
+  {
+    "transportation_type": "tram",
+    "departure": "Venice Airport",
+    "destination": "Gara Venetia Santa Lucia",
+    "transportation_code": "A10",
+    "boarding_details": "",
+    "seat_code": "",
+    "extra_details": ""
+  },
+  {
+    "transportation_type": "train",
+    "departure": "Gara Venetia Santa Lucia",
+    "destination": "Bologna San Ruffillo",
+    "transportation_code": "ICN 35780",
+    "boarding_details": "Platform 1",
+    "seat_code": "13F",
+    "extra_details": ""
+  },
+  {
+    "transportation_type": "airport bus",
+    "departure": "Bologna San Ruffillo",
+    "destination": "Bologna Guglielmo Marconi Airport",
+    "transportation_code": "",
+    "boarding_details": "",
+    "seat_code": "",
+    "extra_details": ""
+  },
+  {
+    "transportation_type": "flight",
+    "departure": "Bologna Guglielmo Marconi Airport",
+    "destination": "Paris CDG Airport",
+    "transportation_code": "AF1229",
+    "boarding_details": "gate 22",
+    "seat_code": "10A",
+    "extra_details": "Self-check-in luggage at counter."
+  },
+  {
+    "transportation_type": "flight",
+    "departure": "Paris CDG Airport",
+    "destination": "Chicago O'Hare",
+    "transportation_code": "AF136",
+    "boarding_details": "gate 32",
+    "seat_code": "10A",
+    "extra_details": "Luggage will transfer automatically from the last flight."
+  }
+]

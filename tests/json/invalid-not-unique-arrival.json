@@ -1,0 +1,20 @@
+[
+  {
+    "transportation_type": "flight",
+    "departure": "Innsbruck Airport",
+    "destination": "Gara Venetia Santa Lucia",
+    "transportation_code": "AA904",
+    "boarding_details": "gate 10",
+    "seat_code": "18B",
+    "extra_details": "Self-check-in luggage at counter."
+  },
+  {
+    "transportation_type": "tram",
+    "departure": "Venice Airport",
+    "destination": "Gara Venetia Santa Lucia",
+    "transportation_code": "A10",
+    "boarding_details": "",
+    "seat_code": "",
+    "extra_details": ""
+  }
+]
